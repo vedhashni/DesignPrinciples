@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using DesignPrinciples.OpenClosedPrinciple;
 using DesignPrinciples.LiskovSubstitutionPrinciple;
+using DesignPrinciples.InterfaceSegregationPrinciple;
 
 
 namespace DesignPrinciples
@@ -38,6 +39,19 @@ namespace DesignPrinciples
 
                     IFileReader fileReaderR = new RegularFile();
                     fileReaderR.ReadFile(@"C:\Users\ven\source\repos\DesignPrinciples\DesignPrinciples\LiskovSubstitutionPrinciple\RegularData.txt");
+                    break;
+
+                case 3:
+                    Console.WriteLine("*******HPLaser*******");
+                    IPrintContent content = new LaserJet();
+                    content.PrintContent();
+                    IPrintDuplex printDuplex = new LaserJet();
+                    printDuplex.PrintDuplexContent();
+                    Console.WriteLine("*******Cannon*******");
+                    IPrintContent content1 = new Cannon();
+                    content1.PrintContent();
+                    IPhotoCopyContent copyContent = new Cannon();
+                    copyContent.PhotoCopyContent();
                     break;
             }
         }
